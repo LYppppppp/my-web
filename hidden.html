@@ -3,126 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隐藏 ID 页面</title>
-    <style>
-        /* 隐藏元素，但仍然保留在 DOM 中 */
-        #wechat-message {
-            display: none;
-        }
-    </style>
+    <title>联系我们</title>
 </head>
 <body>
-    <h2>感谢您的扫描！</h2>
-    <p>请点击下面的按钮以得到获取激活码的方式：</p>
-    <button onclick="revealWeChat()">点击获取微信号</button>
-
-    <!-- 隐藏的元素 -->
-    <p id="wechat-message">微信号：wx123456，请添加我们获取激活码。</p>
+    <div class="container">
+        <h2>感谢您的扫描！</h2>
+        <p>请点击下面的按钮以获取您的激活码：</p>
+        <button onclick="revealWeChat()">点击获取微信号</button>
+        <p id="wechat-message">微信号：wx123456，请添加我们获取激活码。</p>
+    </div>
 
     <script>
         function revealWeChat() {
-            // 显示隐藏的微信号信息
             var weChatElement = document.getElementById('wechat-message');
-            weChatElement.style.display = 'block';
-            
-            // 获取微信号内容
-            console.log(weChatElement.textContent);  // wx123456 请添加我们获取激活码
+            weChatElement.style.display = 'block'; // 显示隐藏的微信号信息
         }
     </script>
 </body>
 </html>
-
 <style>
-    /* 基本页面布局 */
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-        color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column; /* 纵向布局 */
-    }
 
-    /* 页面容器 */
+/* 基本页面布局 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* 纵向布局 */
+}
+
+/* 页面容器 */
+.container {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; /* 纵向排列 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 标题样式 */
+h2 {
+    font-size: 24px;
+    color: #2d2d2d;
+    margin-bottom: 20px;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px 0; /* 按钮之间有间距 */
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+/* 提示文本样式 */
+p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* 微信号消息 */
+#wechat-message {
+    display: none;
+    background-color: #e9f7ec;
+    color: #4cae4c;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%; /* 微信号信息区占满容器宽度 */
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
     .container {
-        background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        padding: 30px;
-        text-align: center;
-        width: 80%;
-        max-width: 600px;
-        display: flex;
-        flex-direction: column; /* 纵向排列 */
-        justify-content: center;
-        align-items: center;
+        padding: 20px;
+        width: 90%;
     }
 
-    /* 标题样式 */
-    h2 {
-        font-size: 24px;
-        color: #2d2d2d;
-        margin-bottom: 20px;
-    }
-
-    /* 按钮样式 */
     button {
-        background-color: #5cb85c;
-        color: white;
-        padding: 15px 30px;
-        font-size: 16px;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 10px 0; /* 按钮之间有间距 */
+        padding: 12px 25px;
+        font-size: 14px;
     }
 
-    button:hover {
-        background-color: #4cae4c;
+    h2 {
+        font-size: 20px;
     }
+}
 
-    /* 提示文本样式 */
-    p {
-        font-size: 16px;
-        color: #555;
-        margin: 10px 0;
-    }
 
-    /* 微信号消息 */
-    #wechat-message {
-        display: none;
-        background-color: #e9f7ec;
-        color: #4cae4c;
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 20px;
-        width: 100%; 
-        display: flex;
-        justify-content: center; /* 横向居中 */
-        align-items: center; /* 纵向居中 */
-        text-align: center; /* 文字内容居中 */
-    }
-
-    /* 响应式设计 */
-    @media (max-width: 600px) {
-        .container {
-            padding: 20px;
-            width: 90%;
-        }
-
-        button {
-            padding: 12px 25px;
-            font-size: 14px;
-        }
-
-        h2 {
-            font-size: 20px;
-        }
-    }
 </style>
